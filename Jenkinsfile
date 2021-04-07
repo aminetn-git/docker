@@ -9,7 +9,7 @@ node {
 
     stage('Build image') {
   
-       app = docker.build("aminetn-git/test")
+       app = docker.build("aminking/test")
     }
 
     stage('Test image') {
