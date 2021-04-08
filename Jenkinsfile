@@ -23,9 +23,10 @@ node {
     stage('Push image') {
          withCredentials([usernamePassword(credentialsId: 'docker-hub', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) {
           sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
-        docker.withRegistry('https://registry.hub.docker.com', 'git') {
+        docker.withRegistry('https://registry.hub.docker.com', 'git') 
             app.push("${env.BUILD_NUMBER}")
             app.push("latest")
         }
+    
     }
 }
